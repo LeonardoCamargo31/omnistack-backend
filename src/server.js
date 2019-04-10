@@ -38,4 +38,4 @@ app.use('/files', express.static(path.resolve(__dirname, '..', 'tmp')))//toda ve
 
 app.use(routes)
 
-server.listen(3000)//assim minha aplicação já esta ouvindo requisições com protocolo http e com protocolo socket.io
+server.listen(process.env.PORT || 3000)//assim minha aplicação já esta ouvindo requisições com protocolo http e com protocolo socket.io

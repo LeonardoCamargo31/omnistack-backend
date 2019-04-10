@@ -19,7 +19,8 @@ const File = new mongoose.Schema({
 
 //um atributo virtual, ele não existe no banco de dado, só existe aqui no nosso backend
 File.virtual('url').get(function () {
-    return `http://localhost:3000/files/${encodeURIComponent(this.path)}`
+    const url= process.env.URL || 'http://localhost:3000'
+    return `${url}/files/${encodeURIComponent(this.path)}`
 })
 
 module.exports = mongoose.model('File', File)
