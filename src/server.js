@@ -4,12 +4,12 @@ const routes = require('./routes')//importando a variavel routes
 const path = require('path')
 const cors = require('cors')
 
-const app = express()
 
+const app = express()
 app.use(cors())
 
 const server = require('http').Server(app)
-const io = require('socket.io')()//já invoco com ()
+const io = require('socket.io')(server)//já invoco com ()
 
 
 io.on('connection', socket => {
