@@ -5,8 +5,12 @@ const path = require('path')
 const cors = require('cors')
 
 const app = express()
+
+app.use(cors())
+
 const server = require('http').Server(app)
 const io = require('socket.io')()//já invoco com ()
+
 
 io.on('connection', socket => {
     console.log('ok')
@@ -29,7 +33,7 @@ app.use((req, resp, next) => {
     return next()//para sair do middleware
 })
 
-app.use(cors())
+
 //use quando quero cadastrar um modulo dentro do meu express
 app.use(express.json())//para entender as requisições em formato json
 app.use(express.urlencoded({ extended: true }))//para entender envio de arquivo
